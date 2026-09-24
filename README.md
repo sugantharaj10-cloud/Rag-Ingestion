@@ -23,14 +23,6 @@ The agent ingests internal enterprise documents across multiple formats to form 
 
 * **Sales & Metrics (Conversion Data):** `SKU_Weekly_Sales_Conversion_3Y_with_Revenue.docx`
 
-+-----------------------------------------------------------------------------------+
-|                            1. DATA INGESTION PIPELINE                             |
-|                                                                                   |
-| [Schedule Trigger] ---> [Search Google Drive] ---> [Download Files]              |
-|                                                            |                      |
-|                                                            v                      |
-| [Pinecone Index] <--- [OpenAI Embeddings] <--- [Text Splitter] <--- [Data Loader] |
-+-----------------------------------------------------------------------------------+
 
 ```text
 [ Schedule Trigger ]
