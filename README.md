@@ -43,13 +43,6 @@ The agent ingests internal enterprise documents across multiple formats to form 
 * **Vector Database:** Pinecone Vector Store
 
 
-* **Reranking Engine:** Cohere (`rerank-v3.5`)
-
-
-* **Interface & Styling:** n8n Hosted Chat Widget (with Custom Glass-morphism CSS)
-
-
-
 ---
 
 ## Prerequisites & Credentials
@@ -66,8 +59,6 @@ Ensure you have active accounts and API keys for the following services:
 | **Pinecone** | Vector Database | API Key, Serverless Index (Dimensions: 1024, Metric: Cosine)
 
 | **OpenAI** | LLM & Embeddings | API Key (`gpt-4.1-mini`, `text-embedding-3-large`)
-
-| **Cohere** | Semantic Reranking | API Key (`rerank-v3.5`)
 
 
 ---
