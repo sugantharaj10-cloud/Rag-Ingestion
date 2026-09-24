@@ -72,7 +72,7 @@ Every user query submitted through the chat interface is evaluated via strict ag
 
 The system operates across two distinct asynchronous pipelines:
 
-### Pipeline 1: Offline Data Ingestion Batch
+### Offline Data Ingestion Batch
 
 1. **Schedule Trigger:** Triggers batch ingestion on a periodic cadence (e.g., daily at midnight).
 
@@ -87,21 +87,6 @@ The system operates across two distinct asynchronous pipelines:
 
 
 
-### Pipeline 2: Online Generation & Retrieval
-
-1. **Query Ingestion:** User sends a query through the public n8n Hosted Chat interface.
-
-
-2. **Agent Reasoning:** The AI Agent processes the question, references session history via `Simple Memory` (context window length = 5), and generates a vector search query.
-
-
-3. **Retrieval & Reranking:** Up to 4 candidate document chunks are retrieved from Pinecone and re-scored using `Cohere Reranker` (`rerank-v3.5`), passing the top 3 most relevant results to the LLM.
-
-
-4. **Grounded Response Generation:** `gpt-4.1-mini` synthesizes a concise, direct answer using *only* the retrieved context and streams the output back to the user.
-
-
-
 ---
 
 ## Workflow & Architecture Configuration
@@ -109,17 +94,6 @@ The system operates across two distinct asynchronous pipelines:
 ### n8n Blueprints
 
 * **Data Ingestion.json:** The full export file containing the scheduled Google Drive to Pinecone indexing workflow.
-
-
-* **Knowledge Agent.json:** The full export file containing the online RAG Agent, Memory, Reranker, and Chat Trigger pipeline.
-
-
-
-### Workflow Guide & Screenshots
-
-* **Week 2 RAG - PM_TPM- n8n solution guide.docx:** Step-by-step visual documentation containing high-resolution screenshots, node settings, and architectural flow diagrams.
-
-
 
 ---
 
@@ -135,9 +109,6 @@ The system operates across two distinct asynchronous pipelines:
 
 
 * **`Data Ingestion.json`:** Importable n8n workflow JSON for batch document processing.
+  
 
-
-* **`Knowledge Agent.json`:** Importable n8n workflow JSON for the interactive RAG agent.
-
-
-* **`Week 2 RAG - PM_TPM- n8n solution guide.pdf`:** Complete setup guide with step-by-step configuration instructions.
+* **`Data Ingestion workflow.pdf`:** Contains high-resolution screenshots of the workflow configuration.
