@@ -32,6 +32,26 @@ The agent ingests internal enterprise documents across multiple formats to form 
 | [Pinecone Index] <--- [OpenAI Embeddings] <--- [Text Splitter] <--- [Data Loader] |
 +-----------------------------------------------------------------------------------+
 
+```text
+[ Schedule Trigger ]
+         │
+         ▼
+[ Search files and folders ] ──> (Google Drive)
+         │
+         ▼
+[ Download file ] ──────────────> (Google Drive)
+         │
+         ▼
+[ Pinecone Vector Store ] ─────────────────────────────────────────┐
+    ├── (Document)   ──> [ Default Data Loader ]                  │
+    │                        └── (Text Splitter) ──> [ Recursive Character Text Splitter ]
+    │                                                             │
+    └── (Embeddings) ──> [ Embeddings OpenAI ] ───────────────────┘
+
+```
+
+---
+
 ## Tech Stack
 
 * **Logic & Orchestration:** n8n
@@ -104,4 +124,5 @@ The system operates across two distinct asynchronous pipelines:
 
 
 * **`Internal Resources`:** Contains files for internal RAG ingestion pipeline
+
 
